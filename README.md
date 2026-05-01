@@ -6,7 +6,7 @@ O material está disponível publicamente para uso por estudantes e pesquisadore
 
 ## Acesso aos slides
 
-[Clique aqui para acessar a apresentação]()
+[Clique aqui para acessar a apresentação](https://ulisseslsreis.github.io/apresentacao_gerenciadores_referencias)
 
 ## Conteúdo
 
