@@ -1,0 +1,237 @@
+/* ============================================================
+   TEMA ACADÊMICO ELEGANTE — Quarto + Reveal.js
+   Autor: Prof. Dr. Ulisses Reis (PPGD/UFERSA)
+   Descrição: Tema visual para apresentações acadêmicas com
+   paleta azul-vinho-dourado e tipografia serifada no título.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. VARIÁVEIS GLOBAIS
+   Define a paleta de cores e é referenciada em todo o arquivo.
+   ------------------------------------------------------------ */
+:root {
+  --cor-primaria:   #16324f;  /* azul profundo — títulos e destaques */
+  --cor-secundaria: #6b1f2a;  /* vinho discreto — ênfase e links */
+  --cor-texto:      #1f1f1f;  /* quase-preto — corpo de texto */
+  --cor-suave:      #5f6b76;  /* cinza-azulado — elementos secundários */
+  --cor-fundo:      #fcfbf8;  /* off-white quente — fundo geral */
+  --cor-linha:      #d8d2c8;  /* bege-acinzentado — bordas e divisores */
+  --cor-destaque:   #b08d57;  /* dourado fosco — acentos visuais */
+}
+
+
+/* ------------------------------------------------------------
+   2. FUNDO E LAYOUT GERAL
+   ------------------------------------------------------------ */
+.reveal {
+  background: var(--cor-fundo);
+  font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--cor-texto);
+  font-size: 34px;
+  line-height: 1.45;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+
+/* ------------------------------------------------------------
+   3. SLIDE DE CAPA (TITLE SLIDE)
+   ------------------------------------------------------------ */
+
+/* Centralização e espaçamento geral da capa */
+#title-slide {
+  text-align: center;
+  padding-top: 50px !important;
+}
+
+/* Foto do autor — círculo posicionado no canto inferior esquerdo */
+#title-slide::after {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  left: -10px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-image: url('imagens/ulisses_sem_fundo.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Suprime decoração residual gerada pelo tema base do Reveal.js */
+#title-slide::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Título principal — margem superior reserva espaço para a logo */
+#title-slide h1 {
+  font-size: 2.2em !important;
+  color: var(--cor-primaria);
+  margin-top: 200px !important;
+}
+
+/* Subtítulo */
+#title-slide .subtitle {
+  font-size: 1.1em !important;
+  margin-bottom: 2em !important;
+}
+
+/* Ícones de redes sociais (renderizados dentro de p.quarto-title-affiliation) */
+.reveal p.quarto-title-affiliation {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.reveal p.quarto-title-affiliation a,
+.reveal p.quarto-title-affiliation a i {
+  color: #8a9ba8 !important;  /* cinza-azulado elegante */
+  border-bottom: none !important;
+  display: inline-block;      /* necessário para transform funcionar */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.reveal p.quarto-title-affiliation a:hover,
+.reveal p.quarto-title-affiliation a:hover i {
+  color: var(--cor-destaque) !important;
+  transform: scale(1.25);
+}
+
+
+/* ------------------------------------------------------------
+   4. SLIDES DE CONTEÚDO
+   ------------------------------------------------------------ */
+
+/* Barra decorativa dourada no topo de cada slide (exceto a capa) */
+.reveal .slides section::before {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: var(--cor-destaque);
+  margin-bottom: 20px;
+  border-radius: 999px;
+}
+
+
+/* ------------------------------------------------------------
+   5. TIPOGRAFIA
+   ------------------------------------------------------------ */
+
+/* Títulos — fonte serifada para contraste com o corpo sans-serif */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.5em;
+}
+
+.reveal h1 { font-size: 1.9em; }
+
+.reveal h2 {
+  font-size: 1.45em;
+  border-bottom: 2px solid var(--cor-linha);
+  padding-bottom: 0.18em;
+}
+
+.reveal h3 {
+  font-size: 1.1em;
+  color: var(--cor-secundaria);
+}
+
+/* Corpo de texto */
+.reveal p,
+.reveal li {
+  color: var(--cor-texto);
+  font-size: 0.9em;
+}
+
+.reveal strong { color: var(--cor-primaria); font-weight: 700; }
+.reveal em     { color: var(--cor-secundaria); }
+
+
+/* ------------------------------------------------------------
+   6. LINKS E CÓDIGO
+   ------------------------------------------------------------ */
+
+/* Links nos slides de conteúdo (exclui os ícones da capa) */
+.reveal a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(107, 31, 42, 0.35);
+}
+
+.reveal a:hover {
+  color: var(--cor-primaria);
+  border-bottom-color: var(--cor-primaria);
+}
+
+/* Código inline */
+.reveal code {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.8em;
+  color: var(--cor-secundaria);
+  background: rgba(22, 50, 79, 0.06);
+  padding: 0.12em 0.3em;
+  border-radius: 6px;
+}
+
+
+/* ------------------------------------------------------------
+   7. TABELAS
+   ------------------------------------------------------------ */
+.reveal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72em;
+}
+
+.reveal table th {
+  background: rgba(22, 50, 79, 0.08);
+  color: var(--cor-primaria);
+  border-bottom: 2px solid var(--cor-linha);
+  padding: 0.45em 0.5em;
+}
+
+
+/* ------------------------------------------------------------
+   8. CITAÇÕES (BLOCKQUOTE)
+   ------------------------------------------------------------ */
+.reveal blockquote {
+  width: 100%;
+  margin: 1em 0;
+  padding: 0.6em 0.9em;
+  background: rgba(22, 50, 79, 0.04);
+  border-left: 4px solid var(--cor-destaque);
+  box-shadow: none;
+  font-style: italic;
+}
+
+
+/* ------------------------------------------------------------
+   9. ELEMENTOS ESTRUTURAIS DIVERSOS
+   ------------------------------------------------------------ */
+
+/* Numeração de slides */
+.reveal .slide-number {
+  font-size: 0.45em;
+  color: var(--cor-suave);
+}
+
+/* Imagens — borda arredondada e sombra suave */
+.reveal img {
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Layout em colunas */
+.columns { gap: 1.2rem; }
